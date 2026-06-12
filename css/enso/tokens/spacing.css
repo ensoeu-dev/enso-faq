@@ -1,0 +1,34 @@
+/* ENSŌ · Spacing · Radius · Lines ─────────────────────────────────────────
+   8-pt rhythm. Generous air is part of the voice — when unsure, add space.
+   micro gaps 4–12 · element gaps 16–24 · block padding 24–32 · sections 48–64 */
+
+:root {
+  /* ── SPACE SCALE (8-pt) ─────────────────────────────── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* ── CORNER RADIUS ──────────────────────────────────── */
+  --radius-chip:  6px;   /* inputs, chips        */
+  --radius-note:  8px;   /* small cards, notes   */
+  --radius-card:  12px;  /* cards                */
+  --radius-panel: 16px;  /* hero blocks, panels  */
+  --radius-phone: 24px;  /* device frame         */
+  --radius-pill:  999px; /* pill buttons (site)  */
+
+  /* ── LINES & DIVIDERS ───────────────────────────────── */
+  --hairline-width: 1px;
+  --amber-divider-width:  48px; /* the signature amber mark */
+  --amber-divider-height: 2px;
+
+  /* ── CONSTANTS ──────────────────────────────────────── */
+  --cta-padding:      18px 40px;
+  --card-padding:     26px;
+  --content-max:      1080px;
+  --email-column:     600px;
+}

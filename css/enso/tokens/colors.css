@@ -1,0 +1,64 @@
+/* ENSŌ · Color ───────────────────────────────────────────────────────────
+   Warm graphite, amber + burnt-orange heat, cream paper.
+   No neon, no blue — ever. Every surface exists on paper (light) and
+   graphite (dark): same bones, inverted skin. */
+
+:root {
+  /* ── CORE ───────────────────────────────────────────── */
+  --enso-graphite:    #1A1813; /* primary dark surface · body text on light */
+  --enso-amber:       #C8943A; /* THE accent: labels, CTA, dividers, glow   */
+  --enso-cream:       #F0E8D8; /* text on dark · light background           */
+  --enso-paper:       #FAF6EC; /* card / page background (email, posts)     */
+
+  /* ── DARK SURFACE STACK ─────────────────────────────── */
+  --enso-bg-2:        #211F18; /* secondary dark background */
+  --enso-surface:     #262420; /* cards on dark             */
+  --enso-surface-2:   #2E2C27; /* raised cards / hover      */
+  --enso-border-dark: #3A3731; /* hairlines on dark · 1px   */
+
+  /* ── TEXT SUPPORT ───────────────────────────────────── */
+  --enso-ink:         #0A0A0A; /* headings on light (site / press) */
+  --enso-warm-gray:   #5A554B; /* secondary text on light          */
+  --enso-cream-dim:   #C4B99A; /* secondary text on dark           */
+  --enso-muted:       #8A8070; /* captions, meta, placeholders     */
+
+  /* ── ACCENT AUX ─────────────────────────────────────── */
+  --enso-amber-soft:   #D4A758;            /* hover state of amber                 */
+  --enso-amber-ink:    #A07020;            /* amber TEXT on light (AA-safe)        */
+  --enso-amber-dim:    rgba(200,148,58,0.12); /* tinted backgrounds, chips         */
+  --enso-amber-border: rgba(200,148,58,0.22); /* borders of tinted blocks          */
+  --enso-amber-glow:   rgba(200,148,58,0.14); /* radial bloom behind device (dark) */
+  --enso-burnt-orange: #CC5500;            /* deep heat: pressed, heat icons, LED  */
+  --enso-border-light: #E3DDCC;            /* hairline on light · 1px              */
+  --enso-white:        #FFFFFF;            /* input surface on light               */
+
+  /* ── SEMANTIC ALIASES ───────────────────────────────── */
+  /* Surfaces */
+  --surface-page:        var(--enso-paper);
+  --surface-card:        var(--enso-white);
+  --surface-page-dark:   var(--enso-graphite);
+  --surface-card-dark:   var(--enso-surface);
+  --surface-raised-dark: var(--enso-surface-2);
+
+  /* Text — light surfaces */
+  --text-heading:    var(--enso-ink);
+  --text-body:       var(--enso-graphite);
+  --text-secondary:  var(--enso-warm-gray);
+  --text-muted:      var(--enso-muted);
+  /* Text — dark surfaces */
+  --text-heading-dark:   var(--enso-cream);
+  --text-body-dark:      var(--enso-cream);
+  --text-secondary-dark: var(--enso-cream-dim);
+  --text-muted-dark:     var(--enso-muted);
+
+  /* Accent / interactive */
+  --accent:          var(--enso-amber);
+  --accent-hover:    var(--enso-amber-soft);
+  --accent-pressed:  var(--enso-burnt-orange);
+  --accent-text:     var(--enso-amber-ink); /* amber rendered as text on light */
+  --on-accent:       var(--enso-graphite);  /* text/icon sitting ON amber       */
+
+  /* Lines */
+  --hairline-light: var(--enso-border-light);
+  --hairline-dark:  var(--enso-border-dark);
+}

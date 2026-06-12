@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ENSŌ Support · Using ENSŌ</title>
+<meta name="description" content="ENSŌ user guide: quick start, parts, temperature control, heat modes and troubleshooting for the ENSŌ 2026 electric hookah.">
+<link rel="stylesheet" href="css/enso/styles.css">
+<link rel="stylesheet" href="css/page.css">
+<script>
+/* Apply the saved theme before first paint to avoid a flash */
+try {
+  var t = localStorage.getItem('enso-guide-theme');
+  if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+} catch (e) {}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <span class="logo">
+    <img class="themed-dark" src="assets/logo/enso-lockup-horizontal-white.png" alt="ENSŌ">
+    <img class="themed-light" src="assets/logo/enso-lockup-graphite.png" alt="" aria-hidden="true">
+  </span>
+  <div class="header-right">
+    <span class="support-label">Support</span>
+    <div class="theme-switch" role="group" aria-label="Color theme">
+      <button type="button" class="theme-btn" data-set-theme="dark">Dark</button>
+      <button type="button" class="theme-btn" data-set-theme="light">Light</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="eyebrow hero-eyebrow">User guide · Using ENSŌ</div>
+  <h1>Master your ritual.</h1>
+  <p>From first charge to a clean session — set up, dial in the heat, and keep your ENSŌ in quiet working order. No charcoal, no ash, no open flame.</p>
+</section>
+
+<!-- Quick start -->
+<section class="quickstart">
+  <div class="section-rule">
+    <div class="amber-rule" aria-hidden="true"></div>
+    <div class="rule-label">Quick start · hover any step</div>
+  </div>
+
+  <div class="step-tabs" role="tablist" aria-label="Quick start steps">
+    <button type="button" class="step-tab" role="tab" data-step="0" aria-selected="true">
+      <span class="step-num">01</span>
+      <span class="step-name">Charge</span>
+    </button>
+    <button type="button" class="step-tab" role="tab" data-step="1" aria-selected="false">
+      <span class="step-num">02</span>
+      <span class="step-name">Fill</span>
+    </button>
+    <button type="button" class="step-tab" role="tab" data-step="2" aria-selected="false">
+      <span class="step-num">03</span>
+      <span class="step-name">Pack</span>
+    </button>
+    <button type="button" class="step-tab" role="tab" data-step="3" aria-selected="false">
+      <span class="step-num">04</span>
+      <span class="step-name">Tune</span>
+    </button>
+    <button type="button" class="step-tab" role="tab" data-step="4" aria-selected="false">
+      <span class="step-num">05</span>
+      <span class="step-name">Enjoy</span>
+    </button>
+  </div>
+
+  <div class="step-panel">
+    <div class="step-figure">
+      <img class="themed-dark"  data-step="0" src="assets/manual/step-charge.png" alt="Charging the ENSŌ battery">
+      <img class="themed-light" data-step="0" src="assets/manual/step-charge-ink.png" alt="" aria-hidden="true">
+      <img class="themed-dark"  data-step="1" src="assets/manual/step-fill.png" alt="Filling the glass water tank">
+      <img class="themed-light" data-step="1" src="assets/manual/step-fill-ink.png" alt="" aria-hidden="true">
+      <img class="themed-dark"  data-step="2" src="assets/manual/step-pack.png" alt="Packing the cup">
+      <img class="themed-light" data-step="2" src="assets/manual/step-pack-ink.png" alt="" aria-hidden="true">
+      <img class="themed-dark"  data-step="3" src="assets/manual/step-tune.png" alt="Tuning the thermodial">
+      <img class="themed-light" data-step="3" src="assets/manual/step-tune-ink.png" alt="" aria-hidden="true">
+      <img class="themed-dark"  data-step="4" src="assets/manual/step-enjoy.png" alt="Enjoying clean clouds">
+      <img class="themed-light" data-step="4" src="assets/manual/step-enjoy-ink.png" alt="" aria-hidden="true">
+    </div>
+    <div class="step-info">
+      <div class="eyebrow step-eyebrow" id="step-eyebrow">Step 01</div>
+      <h3 id="step-title">Charge</h3>
+      <p id="step-copy">Make sure the battery is charged before you begin. A full charge takes about 1.5 hours over USB-C — use a 30W+ brick for the fastest top-up, and watch the four LEDs climb to full.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Know your ENSŌ -->
+<section class="split">
+  <div class="split-copy">
+    <div class="eyebrow split-eyebrow">Know your ENSŌ</div>
+    <h2>Eleven parts,<br>one ritual.</h2>
+    <p>Thermocap and heating chamber up top; the thermodial and LED indicator on the body; vaporhose, watershield, dip tube and the glass water tank below. The leather strap and magnetic mouthpiece finish the object.</p>
+  </div>
+  <div class="split-figure">
+    <img class="themed-dark" src="assets/manual/parts-diagram.png" alt="Labelled diagram of ENSŌ parts">
+    <img class="themed-light" src="assets/manual/parts-diagram-ink.png" alt="" aria-hidden="true">
+  </div>
+</section>
+
+<!-- Heat & dial -->
+<section class="split">
+  <div class="split-figure">
+    <img class="themed-dark" src="assets/manual/temp-dial.png" alt="ENSŌ temperature dial, 180 to 330 degrees">
+    <img class="themed-light" src="assets/manual/temp-dial-ink.png" alt="" aria-hidden="true">
+  </div>
+  <div class="split-copy">
+    <div class="eyebrow split-eyebrow">Temperature control</div>
+    <h2>Heat, dialled in.</h2>
+    <p>The thermodial spans 180–330 °C, each gradation a 5° step. Start low at 180° and let it heat for 5–8 minutes. If the vapor is light, raise the temperature 15–30° at a time and give each change 30–60 seconds to take effect.</p>
+  </div>
+</section>
+
+<!-- Modes -->
+<section class="modes">
+  <div class="section-rule">
+    <div class="amber-rule" aria-hidden="true"></div>
+    <div class="rule-label">Three modes</div>
+  </div>
+  <div class="mode-grid">
+    <div class="card mode-card">
+      <div class="mode-tag">Default</div>
+      <div class="mode-name">Regular mode</div>
+      <p>ENSŌ's heating algorithm regulates the temperature, with a 70°C+ boost during the 5-minute pre-heat.</p>
+    </div>
+    <div class="card mode-card">
+      <div class="mode-tag">Press 3× · green</div>
+      <div class="mode-name">G-Mode</div>
+      <p>Linear power to counterbalance frequent draws, and no extra heat in the pre-heat. The LED turns green.</p>
+    </div>
+    <div class="card mode-card">
+      <div class="mode-tag">Press 5×</div>
+      <div class="mode-name">Blue-Mode</div>
+      <p>The thermodial locks — the set temperature stays fixed and turning the dial does nothing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Troubleshooting -->
+<section class="trouble">
+  <div class="trouble-head">
+    <div class="eyebrow trouble-eyebrow">Troubleshooting</div>
+    <h2>When something's off.</h2>
+  </div>
+
+  <div class="search-wrap">
+    <input type="search" id="faq-search" class="search-input" placeholder="Search the guide…" aria-label="Search the guide">
+  </div>
+
+  <div class="chips" role="group" aria-label="Filter by category">
+    <button type="button" class="chip" data-cat="heat" aria-pressed="false">Heat</button>
+    <button type="button" class="chip" data-cat="battery" aria-pressed="false">Battery</button>
+    <button type="button" class="chip" data-cat="cleaning" aria-pressed="false">Cleaning</button>
+    <button type="button" class="chip" data-cat="draw" aria-pressed="false">Draw</button>
+  </div>
+
+  <div class="card faq-card">
+    <div class="accordion" id="faq-list">
+      <div class="faq-item open" data-cats="draw">
+        <button type="button" class="faq-q" aria-expanded="true">
+          <span>The draw feels too tight.</span>
+          <span class="faq-marker" aria-hidden="true">−</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>Use the poking tool on the multi-tool to loosen the tobacco lightly around the edges of the cup, opening up the airpath through the middle.</p>
+        </div></div>
+      </div>
+      <div class="faq-item" data-cats="heat">
+        <button type="button" class="faq-q" aria-expanded="false">
+          <span>Vapor production is low.</span>
+          <span class="faq-marker" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>Start at the lowest setting (180°) and let it heat for 5–8 minutes. If it is still light, raise the temperature in 15–30° increments, allowing 30–60 seconds for each change to take effect.</p>
+        </div></div>
+      </div>
+      <div class="faq-item" data-cats="battery">
+        <button type="button" class="faq-q" aria-expanded="false">
+          <span>How long does the battery last?</span>
+          <span class="faq-marker" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>At the recommended low setting (180–210°), up to about 2 hours. Higher heat settings draw more power and shorten run-time. A full charge takes up to 1.5 hours over USB-C — use a 30W+ brick for the fastest charge, and keep the battery out of direct sun or heat.</p>
+        </div></div>
+      </div>
+      <div class="faq-item" data-cats="cleaning">
+        <button type="button" class="faq-q" aria-expanded="false">
+          <span>How do I clean ENSŌ?</span>
+          <span class="faq-marker" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>Let the unit cool first. Scrub the heating chamber with the wiremesh glove on the multi-tool, clean the vaporshaft with the long brush, and the vaporhose-stem and airpaths with the short brush. Rinse the glass tank with cold water.</p>
+        </div></div>
+      </div>
+      <div class="faq-item" data-cats="heat">
+        <button type="button" class="faq-q" aria-expanded="false">
+          <span>The surfaces feel hot.</span>
+          <span class="faq-marker" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>Once powered on, surfaces get hot and can cause injury. Always use the cup-removal tool on the multi-tool to lift a cup from the chamber — never your fingers.</p>
+        </div></div>
+      </div>
+      <div class="faq-item" data-cats="heat">
+        <button type="button" class="faq-q" aria-expanded="false">
+          <span>Can I use loose-leaf herbs?</span>
+          <span class="faq-marker" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <p>Yes. Place the screen mesh in the bottom of the ceramic cup and fill with up to 3 g, or use the gold-plated herb cup (up to 1.5 g, sold separately). Insert into the heating chamber as usual.</p>
+        </div></div>
+      </div>
+    </div>
+    <p class="no-results" hidden>No matches — try a different word or clear the filter.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="amber-rule" aria-hidden="true"></div>
+  <div class="cta-line">Still need a hand?</div>
+  <a class="btn-primary" href="mailto:support@ensoshisha.eu">Contact support <span class="btn-arrow" aria-hidden="true">→</span></a>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-badge">
+    <img class="themed-dark" src="assets/badges/reddot-winner-2026-white.png" alt="Red Dot Design Award 2026 Winner">
+    <img class="themed-light" src="assets/badges/reddot-winner-2026.png" alt="" aria-hidden="true">
+  </div>
+  <div class="footer-logo">
+    <img class="themed-dark" src="assets/logo/enso-lockup-horizontal-white.png" alt="ENSŌ">
+    <img class="themed-light" src="assets/logo/enso-lockup-graphite.png" alt="" aria-hidden="true">
+  </div>
+  <div class="footer-slogan">Your ritual. Without charcoal.</div>
+  <div class="footer-meta">ENSŌ · 21+ only · ensoshisha.com/support · Red Dot Design Award 2026 Winner</div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
