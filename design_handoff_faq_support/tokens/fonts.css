@@ -1,0 +1,7 @@
+/* ENSŌ webfonts ─────────────────────────────────────────────────────────
+   One family carries the brand: Montserrat (Light, Light Italic, Regular,
+   Medium, ExtraLight). Inter Extra Bold appears ONLY for data/stats on the
+   site & press surfaces. Loaded from Google Fonts; the @import expands to
+   @font-face rules the compiler ships to consumers. */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@800&display=swap');

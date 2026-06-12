@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="ENSŌ Support · Using ENSŌ" description="Product how-to & troubleshooting guide with a light/dark switch — quick-start steps, labelled parts diagram, heat dial, modes and a troubleshooting accordion." -->
+<helmet>
+<script src="./ds-base.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;1,300&display=swap');
+  *{box-sizing:border-box}
+  html,body{margin:0}
+</style>
+</helmet>
+
+<div ref="{{ rootRef }}" style="font-family:'Montserrat',sans-serif;background:var(--bg,#1A1813);color:var(--text,#F0E8D8);min-height:100vh;transition:background-color .25s ease,color .25s ease">
+
+  <!-- Header -->
+  
+
+  <!-- Hero -->
+  <header style="max-width:1080px;margin:0 auto;padding:26px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+    <span style="display:inline-flex">
+      <img src="../../assets/logo/enso-lockup-horizontal-white.png" alt="ENSŌ" style="display: var(--id,block); height: 70px; width: 160px">
+      <img src="../../assets/logo/enso-lockup-graphite.png" alt="" aria-hidden="true" style="display: var(--il,none); height: 70px; width: 160px">
+    </span>
+    <div style="display:flex;align-items:center;gap:28px">
+      <span style="font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--muted,#8A8070)">Support</span>
+      <div style="display:inline-flex;align-items:center;gap:3px;border:1px solid var(--line,#3A3731);border-radius:999px;padding:3px">
+        <button onClick="{{ setDark }}" style="border:none;border-radius:999px;padding:7px 15px;font-family:inherit;font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;background:var(--d-bg,#C8943A);color:var(--d-fg,#1A1813);transition:background-color .18s ease,color .18s ease">Dark</button>
+        <button onClick="{{ setLight }}" style="border:none;border-radius:999px;padding:7px 15px;font-family:inherit;font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;background:var(--l-bg,transparent);color:var(--l-fg,#8A8070);transition:background-color .18s ease,color .18s ease">Light</button>
+      </div>
+    </div>
+  </header><section style="max-width:760px;margin:0 auto;padding:72px 40px 56px;text-align:center">
+    <div style="font-size:12px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:#C8943A;margin-bottom:24px">User guide · Using ENSŌ</div>
+    <h1 style="margin:0;font-style:italic;font-weight:300;font-size:52px;line-height:1.1;letter-spacing:-.01em;color:var(--head,#F0E8D8)">Master your ritual.</h1>
+    <p style="margin:24px auto 0;max-width:560px;font-weight:300;font-size:16px;line-height:1.7;color:var(--sub,#C4B99A)">From first charge to a clean session — set up, dial in the heat, and keep your ENSŌ in quiet working order. No charcoal, no ash, no open flame.</p>
+  </section>
+
+  <!-- Quick start -->
+  <section style="max-width:1080px;margin:0 auto;padding:24px 40px 0">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px">
+      <div style="width:48px;height:2px;background:#C8943A"></div>
+      <div style="font-size:11px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--muted,#8A8070)">Quick start · hover any step</div>
+    </div>
+    <div ref="{{ tabsRef }}" style="display:grid;grid-template-columns:repeat(5,1fr);gap:0">
+      <sc-for list="{{ steps }}" as="step" hint-placeholder-count="5">
+        <div data-tab="" onMouseEnter="{{ step.onEnter }}" onClick="{{ step.onEnter }}" style="padding:18px 18px 16px;border-top:2px solid transparent;cursor:pointer;opacity:0.45;transition:opacity .18s ease,border-color .18s ease" style-hover="opacity:1">
+          <div style="font-family:'Inter',sans-serif;font-weight:800;font-size:24px;color:#C8943A;line-height:1">{{ step.n }}</div>
+          <div style="margin-top:12px;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--head,#F0E8D8)">{{ step.title }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="margin-top:36px;display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center">
+      <div ref="{{ viewerRef }}" style="min-height:300px;display:flex;align-items:center;justify-content:center;padding:8px">
+        <img data-step-img="" data-step="0" data-variant="dark" src="../../assets/manual/step-charge.png" alt="Charging the ENSŌ battery" style="display:block;max-width:100%;max-height:260px;width:auto;height:auto;margin:0 auto" />
+        <img data-step-img="" data-step="0" data-variant="light" src="../../assets/manual/step-charge-ink.png" alt="" aria-hidden="true" style="display:none;max-width:100%;max-height:260px;width:auto;height:auto;margin:0 auto" />
+        <img data-step-img="" data-step="1" data-variant="dark" src="../../assets/manual/step-fill.png" alt="Filling the glass water tank" style="display:none;max-width:100%;max-height:260px;width:auto;height:auto;margin:0 auto" />
+        <img data-step-img="" data-step="1" data-variant="light" src="../../assets/manual/step-fill-ink.png" alt="" aria-hidden="true" style="display:none;max-width:100%;max-height:260px;width:auto;height:auto;margin:0 auto" />
+        <img data-step-img="" data-step="2" data-variant="dark" src="../../assets/manual/step-pack.png" alt="Packing the cup" style="display:none;max-width:100%;max-height:260px;width:auto;height:auto;margin:0 auto" />
+        <img data-step-img="" data-step="2" data-variant="light" src="../../assets/manual/step-pack-ink.png" alt="" aria-hidden="true" style="display:none;max-width:100%;max-height:260px;width:auto;height:auto;margin:0 auto" />
+        <img data-step-img="" data-step="3" data-variant="dark" src="../../assets/manual/step-tune.png" alt="Tuning the thermodial" style="display:none;max-width:100%;max-height:240px;width:auto;height:auto;margin:0 auto" />
+        <img data-step-img="" data-step="3" data-variant="light" src="../../assets/manual/step-tune-ink.png" alt="" aria-hidden="true" style="display:none;max-width:100%;max-height:240px;width:auto;height:auto;margin:0 auto" />
+        <img data-step-img="" data-step="4" data-variant="dark" src="../../assets/manual/step-enjoy.png" alt="Enjoying clean clouds" style="display:none;max-width:100%;max-height:210px;width:auto;height:auto;margin:0 auto" />
+        <img data-step-img="" data-step="4" data-variant="light" src="../../assets/manual/step-enjoy-ink.png" alt="" aria-hidden="true" style="display:none;max-width:100%;max-height:210px;width:auto;height:auto;margin:0 auto" />
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:#C8943A;margin-bottom:16px">Step {{ active.n }}</div>
+        <h3 style="margin:0;font-style:italic;font-weight:300;font-size:30px;line-height:1.15;color:var(--head,#F0E8D8)">{{ active.title }}</h3>
+        <p style="margin:18px 0 0;font-weight:300;font-size:15px;line-height:1.75;color:var(--sub,#C4B99A);max-width:440px">{{ active.long }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Know your ENSŌ — parts diagram -->
+  <section style="max-width:1080px;margin:0 auto;padding:88px 40px 0">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center">
+      <div>
+        <div style="font-size:12px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:#C8943A;margin-bottom:20px">Know your ENSŌ</div>
+        <h2 style="margin:0 0 20px;font-style:italic;font-weight:300;font-size:32px;line-height:1.15;color:var(--head,#F0E8D8)">Eleven parts,<br>one ritual.</h2>
+        <p style="font-weight:300;font-size:15px;line-height:1.75;color:var(--sub,#C4B99A);max-width:420px">Thermocap and heating chamber up top; the thermodial and LED indicator on the body; vaporhose, watershield, dip tube and the glass water tank below. The leather strap and magnetic mouthpiece finish the object.</p>
+      </div>
+      <div>
+        <img src="../../assets/manual/parts-diagram.png" alt="Labelled diagram of ENSŌ parts" style="display:var(--id,block);width:70%;height:auto;margin:0 auto">
+        <img src="../../assets/manual/parts-diagram-ink.png" alt="" aria-hidden="true" style="display:var(--il,none);width:70%;height:auto;margin:0 auto">
+      </div>
+    </div>
+  </section>
+
+  <!-- Heat & dial -->
+  <section style="max-width:1080px;margin:0 auto;padding:88px 40px 0">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center">
+      <div>
+        <img src="../../assets/manual/temp-dial.png" alt="ENSŌ temperature dial, 180 to 330 degrees" style="display:var(--id,block);width:70%;height:auto;margin:0 auto">
+        <img src="../../assets/manual/temp-dial-ink.png" alt="" aria-hidden="true" style="display:var(--il,none);width:70%;height:auto;margin:0 auto">
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:#C8943A;margin-bottom:20px">Temperature control</div>
+        <h2 style="margin:0 0 20px;font-style:italic;font-weight:300;font-size:32px;line-height:1.15;color:var(--head,#F0E8D8)">Heat, dialled in.</h2>
+        <p style="font-weight:300;font-size:15px;line-height:1.75;color:var(--sub,#C4B99A);max-width:420px">The thermodial spans 180–330 °C, each gradation a 5° step. Start low at 180° and let it heat for 5–8 minutes. If the vapor is light, raise the temperature 15–30° at a time and give each change 30–60 seconds to take effect.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modes -->
+  <section style="max-width:1080px;margin:0 auto;padding:88px 40px 0">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px">
+      <div style="width:48px;height:2px;background:#C8943A"></div>
+      <div style="font-size:11px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--muted,#8A8070)">Three modes</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+      <sc-for list="{{ modes }}" as="mode" hint-placeholder-count="3">
+        <x-import component-from-global-scope="ENSDesignSystem_6143e6.Card" tone="{{ t.tone }}" hint-size="100%,180px">
+          <div style="font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#C8943A">{{ mode.tag }}</div>
+          <div style="margin-top:12px;font-weight:500;font-size:18px;color:var(--head,#F0E8D8)">{{ mode.name }}</div>
+          <p style="margin:12px 0 0;font-weight:300;font-size:13px;line-height:1.65;color:var(--sub,#C4B99A)">{{ mode.copy }}</p>
+        </x-import>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- Troubleshooting -->
+  <section style="max-width:680px;margin:0 auto;padding:88px 40px 0">
+    <div style="text-align:center;margin-bottom:36px">
+      <div style="font-size:12px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:#C8943A;margin-bottom:18px">Troubleshooting</div>
+      <h2 style="margin:0;font-style:italic;font-weight:300;font-size:32px;line-height:1.15;color:var(--head,#F0E8D8)">When something's off.</h2>
+    </div>
+    <div style="margin-bottom:24px">
+      <x-import component-from-global-scope="ENSDesignSystem_6143e6.SearchInput" tone="{{ t.tone }}" placeholder="Search the guide…" hint-size="100%,52px"></x-import>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-bottom:28px">
+      <x-import component-from-global-scope="ENSDesignSystem_6143e6.Chip" selected="{{ true }}" hint-size="70px,36px">Heat</x-import>
+      <x-import component-from-global-scope="ENSDesignSystem_6143e6.Chip" hint-size="84px,36px">Battery</x-import>
+      <x-import component-from-global-scope="ENSDesignSystem_6143e6.Chip" hint-size="90px,36px">Cleaning</x-import>
+      <x-import component-from-global-scope="ENSDesignSystem_6143e6.Chip" hint-size="70px,36px">Draw</x-import>
+    </div>
+    <x-import component-from-global-scope="ENSDesignSystem_6143e6.Card" tone="{{ t.tone }}" style="padding-top:6px;padding-bottom:6px" hint-size="100%,360px">
+      <x-import component-from-global-scope="ENSDesignSystem_6143e6.Accordion" tone="{{ t.tone }}" items="{{ faqs }}" defaultOpenIndex="{{ 0 }}" hint-size="100%,340px"></x-import>
+    </x-import>
+  </section>
+
+  <!-- CTA -->
+  <section style="text-align:center;padding:80px 40px 0">
+    <div style="display:inline-block;width:48px;height:2px;background:#C8943A;margin-bottom:32px"></div>
+    <div style="font-style:italic;font-weight:300;font-size:24px;color:#C8943A;margin-bottom:24px">Still need a hand?</div>
+    <div>
+      <x-import component-from-global-scope="ENSDesignSystem_6143e6.Button" variant="primary" arrow="{{ true }}" hint-size="240px,52px">Contact support</x-import>
+    </div>
+  </section>
+
+  <!-- Footer (transparent, themed logo, larger Red Dot) -->
+  <footer style="max-width:1080px;margin:0 auto;padding:88px 40px 64px;text-align:center">
+    <div style="margin-bottom:36px">
+      <img src="../../assets/badges/reddot-winner-2026-white.png" alt="Red Dot Design Award 2026 Winner" style="display:var(--id,block);height:104px;width:auto;margin:0 auto">
+      <img src="../../assets/badges/reddot-winner-2026.png" alt="" aria-hidden="true" style="display:var(--il,none);height:104px;width:auto;margin:0 auto">
+    </div>
+    <div style="margin-bottom:24px">
+      <img src="../../assets/logo/enso-lockup-horizontal-white.png" alt="ENSŌ" style="display:var(--id,block);height:40px;width:auto;margin:0 auto">
+      <img src="../../assets/logo/enso-lockup-graphite.png" alt="" aria-hidden="true" style="display:var(--il,none);height:40px;width:auto;margin:0 auto">
+    </div>
+    <div style="font-style:italic;font-weight:300;font-size:18px;color:#C8943A">Your ritual. Without charcoal.</div>
+    <div style="margin-top:12px;font-size:11px;font-weight:300;color:var(--muted,#8A8070);letter-spacing:.04em">ENSŌ · 21+ only · ensoshisha.com/support · Red Dot Design Award 2026 Winner</div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const THEMES = {
+  dark: {
+    bg: '#1A1813', text: '#F0E8D8', head: '#F0E8D8', sub: '#C4B99A', muted: '#8A8070',
+    line: '#3A3731', tone: 'dark',
+    dBg: '#C8943A', dFg: '#1A1813', lBg: 'transparent', lFg: '#8A8070',
+    id: 'block', il: 'none',
+  },
+  light: {
+    bg: '#FAF6EC', text: '#1A1813', head: '#0A0A0A', sub: '#5A554B', muted: '#8A8070',
+    line: '#E3DDCC', tone: 'light',
+    dBg: 'transparent', dFg: '#8A8070', lBg: '#C8943A', lFg: '#1A1813',
+    id: 'none', il: 'block',
+  },
+};
+
+class Component extends DCLogic {
+  state = { mode: 'dark', activeStep: 0 };
+  rootRef = React.createRef();
+  viewerRef = React.createRef();
+  tabsRef = React.createRef();
+
+  applyTheme() {
+    const el = this.rootRef.current;
+    if (!el) return;
+    const t = THEMES[this.state.mode] || THEMES.dark;
+    const map = { '--bg': t.bg, '--text': t.text, '--head': t.head, '--sub': t.sub, '--muted': t.muted, '--line': t.line, '--d-bg': t.dBg, '--d-fg': t.dFg, '--l-bg': t.lBg, '--l-fg': t.lFg, '--id': t.id, '--il': t.il };
+    for (const k in map) el.style.setProperty(k, map[k]);
+  }
+
+  applyStep() {
+    const v = this.viewerRef.current;
+    if (v) {
+      const want = this.state.mode === 'light' ? 'light' : 'dark';
+      const imgs = v.querySelectorAll('[data-step-img]');
+      imgs.forEach((im) => {
+        const on = (+im.dataset.step === this.state.activeStep) && (im.dataset.variant === want);
+        im.style.display = on ? 'block' : 'none';
+      });
+    }
+    const tb = this.tabsRef.current;
+    if (tb) {
+      const tabs = tb.querySelectorAll('[data-tab]');
+      tabs.forEach((el, i) => {
+        const on = i === this.state.activeStep;
+        el.style.opacity = on ? '1' : '0.45';
+        el.style.borderTopColor = on ? '#C8943A' : 'transparent';
+      });
+    }
+  }
+
+  componentDidMount() {
+    try {
+      const saved = localStorage.getItem('enso-guide-theme');
+      if (saved === 'light' || saved === 'dark') this.setState({ mode: saved });
+    } catch (e) {}
+    this.applyTheme();
+    this.applyStep();
+  }
+
+  componentDidUpdate() {
+    this.applyTheme();
+    this.applyStep();
+  }
+
+  set(mode) {
+    try { localStorage.setItem('enso-guide-theme', mode); } catch (e) {}
+    this.setState({ mode });
+  }
+
+  renderVals() {
+    const t = THEMES[this.state.mode] || THEMES.dark;
+    const stepData = [
+      { n: '01', title: 'Charge', long: 'Make sure the battery is charged before you begin. A full charge takes about 1.5 hours over USB-C — use a 30W+ brick for the fastest top-up, and watch the four LEDs climb to full.' },
+      { n: '02', title: 'Fill', long: 'Twist off the glass water tank and fill it with cold water up to the level indicator. Cold water cools the vapor for a smoother, cleaner draw.' },
+      { n: '03', title: 'Pack', long: 'Pack your cup lightly with your tobacco, then open an airpath straight down the middle with the poking tool. Even, gentle packing keeps the draw open.' },
+      { n: '04', title: 'Tune', long: 'Set the thermodial to its lowest setting, 180°, and let it heat for 5–8 minutes. If the vapor is light, raise the temperature 15–30° at a time, allowing 30–60 seconds for each change.' },
+      { n: '05', title: 'Enjoy', long: 'Draw slowly and steadily. With clean electric heat there is no charcoal, ash or open flame — just consistent, flavourful clouds.' },
+    ];
+    const steps = stepData.map((s, i) => ({ ...s, onEnter: () => this.setState({ activeStep: i }) }));
+    const active = steps[this.state.activeStep] || steps[0];
+    return {
+      t,
+      rootRef: this.rootRef,
+      viewerRef: this.viewerRef,
+      tabsRef: this.tabsRef,
+      steps,
+      active,
+      setDark: () => this.set('dark'),
+      setLight: () => this.set('light'),
+      modes: [
+        { tag: 'Default', name: 'Regular mode', copy: "ENSŌ's heating algorithm regulates the temperature, with a 70°C+ boost during the 5-minute pre-heat." },
+        { tag: 'Press 3× · green', name: 'G-Mode', copy: 'Linear power to counterbalance frequent draws, and no extra heat in the pre-heat. The LED turns green.' },
+        { tag: 'Press 5×', name: 'Blue-Mode', copy: 'The thermodial locks — the set temperature stays fixed and turning the dial does nothing.' },
+      ],
+      faqs: [
+        { q: 'The draw feels too tight.', a: 'Use the poking tool on the multi-tool to loosen the tobacco lightly around the edges of the cup, opening up the airpath through the middle.' },
+        { q: 'Vapor production is low.', a: 'Start at the lowest setting (180°) and let it heat for 5–8 minutes. If it is still light, raise the temperature in 15–30° increments, allowing 30–60 seconds for each change to take effect.' },
+        { q: 'How long does the battery last?', a: 'At the recommended low setting (180–210°), up to about 2 hours. Higher heat settings draw more power and shorten run-time. A full charge takes up to 1.5 hours over USB-C — use a 30W+ brick for the fastest charge, and keep the battery out of direct sun or heat.' },
+        { q: 'How do I clean ENSŌ?', a: 'Let the unit cool first. Scrub the heating chamber with the wiremesh glove on the multi-tool, clean the vaporshaft with the long brush, and the vaporhose-stem and airpaths with the short brush. Rinse the glass tank with cold water.' },
+        { q: 'The surfaces feel hot.', a: 'Once powered on, surfaces get hot and can cause injury. Always use the cup-removal tool on the multi-tool to lift a cup from the chamber — never your fingers.' },
+        { q: 'Can I use loose-leaf herbs?', a: 'Yes. Place the screen mesh in the bottom of the ceramic cup and fill with up to 3 g, or use the gold-plated herb cup (up to 1.5 g, sold separately). Insert into the heating chamber as usual.' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
