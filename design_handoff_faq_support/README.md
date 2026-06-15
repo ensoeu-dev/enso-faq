@@ -25,23 +25,31 @@ not a module to import.
 Recreate pixel-faithfully using the codebase's libraries; exact tokens below.
 
 ## Screens / Views
-Single scrolling page, max content width **1080px**, centred, 40px side padding.
+Single scrolling page, max content width **1080px**, centred, 40px side padding
+(22px on mobile). **Fully responsive** — see *Responsive / mobile* below.
 Two themes (dark default / light), toggled in the header.
 
-1. **Header** — logo left; right: "Support" label + a Dark/Light segmented
-   switch (pill, 1px hairline border, active option = amber fill + graphite text,
-   inactive = transparent + muted text). Logo swaps white↔graphite by theme.
+1. **Header** — logo left; right: a **"Troubleshoot"** link + a Dark/Light
+   segmented switch (pill, 1px hairline border, active option = amber fill +
+   graphite text, inactive = transparent + muted text). Logo swaps
+   white↔graphite by theme. The Troubleshoot link smooth-scrolls down to the
+   Troubleshooting section (§7).
 2. **Hero** — centred. Amber eyebrow "USER GUIDE · USING ENSŌ"; italic display
    H1 "Master your ritual." (Montserrat Light Italic, ~52px); one secondary
    paragraph.
-3. **Quick Start (interactive)** — section eyebrow with a 48×2 amber rule. A row
-   of **5 step tabs** (Inter ExtraBold amber number 01–05 + uppercase title:
-   Charge / Fill / Pack / Tune / Enjoy). Below: a 2-column panel — left a
-   centred line-art illustration (transparent PNG, white on dark / ink on light),
-   right a "STEP 0X" eyebrow + italic title + explanation paragraph.
-   **Behaviour:** hovering OR clicking a tab sets it active (full opacity + 2px
-   amber top-border; inactive tabs 0.45 opacity, transparent border) and swaps
-   the panel image + text. Default active = step 01.
+3. **Quick Start (interactive)** — section eyebrow "QUICK START · STEP BY STEP"
+   with a 48×2 amber rule. A row of **5 step tabs** (Inter ExtraBold amber
+   number 01–05 + uppercase title: Charge / Fill / Pack / Tune / Enjoy). Below:
+   a 2-column panel — left a centred line-art illustration (transparent PNG,
+   white on dark / ink on light), right a "STEP 0X" eyebrow + italic title +
+   explanation paragraph, and (on most steps) an amber **Pro tip** card.
+   **Behaviour:** hovering OR clicking/tapping a tab sets it active (full
+   opacity + 2px amber top-border; inactive tabs 0.45 opacity, transparent
+   border) and swaps the panel image + text + pro tip. Default active = step 01.
+   Step 05's Pro tip has an inline **"Temperature control →"** link that
+   smooth-scrolls to §5. On a click/tap (not hover), if the panel is below the
+   fold (mainly mobile) the page smooth-scrolls so the Quick Start eyebrow sits
+   near the top.
 4. **Know your ENSŌ** — 2-col: copy left, the labelled parts diagram (A–K)
    right, sized to 70% of its column, centred.
 5. **Temperature control** — 2-col: the thermodial diagram left (70%, centred),
@@ -58,13 +66,33 @@ Two themes (dark default / light), toggled in the header.
    "Your ritual. Without charcoal.", muted meta line
    "ENSŌ · 21+ only · ensoshisha.com/support · Red Dot Design Award 2026 Winner".
 
+## Responsive / mobile
+One responsive page (not a separate mobile build). Breakpoint at **760px**
+(plus a 480px tightening):
+- Two-column sections (Quick Start panel, parts diagram, heat dial) collapse to
+  **one column**; the three mode cards stack.
+- Section side padding 40px → 22px; hero H1 ~52px → 34px.
+- Quick Start tabs stay in a 5-up row but become a tappable strip: ≥62px tall
+  targets, centred number + label, hairline dividers between, labels nowrap.
+- Step illustrations shrink (max-height 150px ≤760px, 128px ≤480px) so the
+  description + Pro tip rise into view without long scrolling.
+- Header wraps gracefully; logo scales down; toggle buttons get larger padding.
+
 ## Interactions & behaviour
 - **Theme switch**: toggles every surface/text colour and swaps themed images
   (logo, Red Dot badge, all line-art illustrations) between white (dark) and
   ink (light) variants. Persist the choice (this prototype uses `localStorage`
   key `enso-guide-theme`). In-app, follow your own theming convention.
 - **Quick Start**: hover/click → active step. Implement as tabs with the active
-  step driving the figure + text. Transitions ~180ms ease on opacity/border.
+  step driving the figure + text + pro tip. Transitions ~180ms ease on
+  opacity/border. On tap (mobile), bring the panel into view (smooth-scroll to
+  the section eyebrow) only when it is below the fold.
+- **In-page jump links**: header "Troubleshoot" → Troubleshooting section; step
+  05 Pro tip "Temperature control →" → Temperature control section. Both are
+  smooth-scrolls with a small top offset. In-app, anchor links / scrollIntoView
+  are fine.
+- **Pro tip cards**: amber-tinted note (10% amber fill, 35% amber hairline) with
+  an uppercase "PRO TIP" label; shown only on steps that have a tip.
 - **Accordion**: single-open, amber +/− markers, ~220ms grid-rows expand.
 - **Search / chips**: in this prototype they are static layout. In-app, wire
   search + category chips to filter the troubleshooting list.
