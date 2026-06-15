@@ -101,13 +101,21 @@ body {
   gap: 28px;
 }
 
-.support-label {
+.nav-link {
+  font-family: var(--font-sans);
   font-size: 11px;
   font-weight: var(--fw-medium);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: color .18s ease;
 }
+
+.nav-link:hover { color: var(--enso-amber); }
 
 .theme-switch {
   display: inline-flex;
@@ -272,6 +280,58 @@ body {
   color: var(--sub);
   max-width: 440px;
 }
+
+/* Pro tip — soft amber note (matches the Callout component) */
+.protip {
+  margin: 24px 0 0;
+  max-width: 440px;
+  background: rgba(200, 148, 58, 0.10);
+  box-shadow: inset 0 0 0 var(--hairline-width) rgba(200, 148, 58, 0.35);
+  border-radius: var(--radius-note);
+  padding: 14px 18px;
+}
+
+.protip-label {
+  font-size: 10px;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--enso-amber);
+}
+
+.protip-text {
+  margin: 7px 0 0;
+  font-weight: var(--fw-light);
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--sub);
+  max-width: none;
+}
+
+.protip-link {
+  margin: 12px 0 0;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--enso-amber);
+  transition: gap .18s ease;
+}
+
+/* [hidden] must win over the inline-flex display above */
+.protip-link[hidden] { display: none; }
+
+.protip-link:hover { gap: var(--space-3); }
+
+.protip-arrow { font-weight: var(--fw-light); }
 
 /* ── Two-column sections (parts diagram, temperature) ─────────────────── */
 .split {
@@ -555,7 +615,7 @@ body {
 }
 
 /* ── Small screens (the in-box QR code lands here) ────────────────────── */
-@media (max-width: 720px) {
+@media (max-width: 760px) {
   .site-header,
   .hero,
   .quickstart,
@@ -564,28 +624,66 @@ body {
   .trouble,
   .cta,
   .site-footer {
-    padding-left: var(--space-6);
-    padding-right: var(--space-6);
+    padding-left: 22px;
+    padding-right: 22px;
   }
 
-  .site-header .logo img { height: 53px; width: 120px; }
+  /* Header wraps gracefully; logo scales down; toggle gets larger targets */
+  .site-header {
+    flex-wrap: wrap;
+    gap: 14px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
 
-  .step-tab { padding: 14px 8px 12px; }
-  .step-num { font-size: 18px; }
-  .step-name { font-size: 9px; letter-spacing: 0.14em; }
+  .site-header .logo img { height: 52px; width: auto; }
 
+  .theme-btn { padding: 10px 18px; }
+
+  .hero h1 { font-size: 34px; }
+
+  /* Two-column sections collapse; mode cards stack */
   .step-panel,
   .split,
   .mode-grid {
     grid-template-columns: 1fr;
-    gap: var(--space-8);
+    gap: 28px;
   }
 
-  .step-figure { min-height: 0; }
+  /* Quick start tabs become a tappable strip with hairline dividers */
+  .step-tab {
+    padding: 14px 4px 12px;
+    min-height: 62px;
+    text-align: center;
+    border-left: var(--hairline-width) solid var(--line);
+  }
 
-  /* Keep copy above figure in both split sections */
-  .split-copy { order: 0; }
-  .split-figure { order: 1; }
+  .step-tab:first-child { border-left: none; }
+
+  .step-num { font-size: 20px; }
+
+  .step-name {
+    margin-top: 6px;
+    font-size: 9px;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  /* Step illustration sits closer to its text so the copy + tip rise into view */
+  .step-figure {
+    min-height: 0;
+    padding: 4px 4px 6px;
+  }
+
+  .step-figure img,
+  .step-figure img[data-step="3"],
+  .step-figure img[data-step="4"] { max-height: 150px; }
+}
+
+@media (max-width: 480px) {
+  .step-figure img,
+  .step-figure img[data-step="3"],
+  .step-figure img[data-step="4"] { max-height: 128px; }
 }
 
 /* ── Quiet motion preference ──────────────────────────────────────────── */

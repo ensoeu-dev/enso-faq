@@ -23,7 +23,7 @@ try {
     <img class="themed-light" src="assets/logo/enso-lockup-graphite.png" alt="" aria-hidden="true">
   </span>
   <div class="header-right">
-    <span class="support-label">Support</span>
+    <button type="button" class="nav-link" data-scroll-to="troubleshooting">Troubleshoot</button>
     <div class="theme-switch" role="group" aria-label="Color theme">
       <button type="button" class="theme-btn" data-set-theme="dark">Dark</button>
       <button type="button" class="theme-btn" data-set-theme="light">Light</button>
@@ -34,14 +34,14 @@ try {
 <section class="hero">
   <div class="eyebrow hero-eyebrow">User guide · Using ENSŌ</div>
   <h1>Master your ritual.</h1>
-  <p>From first charge to a clean session — set up, dial in the heat, and keep your ENSŌ in quiet working order. No charcoal, no ash, no open flame.</p>
+  <p>From first charge to a clean session — set up, dial in the heat, and enjoy your ENSŌ. No charcoal, no ash, no open flame.</p>
 </section>
 
 <!-- Quick start -->
-<section class="quickstart">
+<section class="quickstart" id="quickstart">
   <div class="section-rule">
     <div class="amber-rule" aria-hidden="true"></div>
-    <div class="rule-label">Quick start · hover any step</div>
+    <div class="rule-label">Quick start · step by step</div>
   </div>
 
   <div class="step-tabs" role="tablist" aria-label="Quick start steps">
@@ -83,7 +83,14 @@ try {
     <div class="step-info">
       <div class="eyebrow step-eyebrow" id="step-eyebrow">Step 01</div>
       <h3 id="step-title">Charge</h3>
-      <p id="step-copy">Make sure the battery is charged before you begin. A full charge takes about 1.5 hours over USB-C — use a 30W+ brick for the fastest top-up, and watch the four LEDs climb to full.</p>
+      <p id="step-copy">Make sure the battery is fully charged before you begin. A full charge takes about 1 hour 45 minutes over USB-C — use a 30W PD charger (minimum) for a steady top-up, and watch the four LEDs climb to full.</p>
+      <div class="protip" id="step-tip" hidden>
+        <span class="protip-label">Pro tip</span>
+        <p class="protip-text" id="step-tip-text"></p>
+        <button type="button" class="protip-link" id="step-tip-link" data-scroll-to="temperature" data-scroll-offset="32" hidden>
+          <span id="step-tip-link-text"></span><span class="protip-arrow" aria-hidden="true">→</span>
+        </button>
+      </div>
     </div>
   </div>
 </section>
@@ -93,7 +100,7 @@ try {
   <div class="split-copy">
     <div class="eyebrow split-eyebrow">Know your ENSŌ</div>
     <h2>Eleven parts,<br>one ritual.</h2>
-    <p>Thermocap and heating chamber up top; the thermodial and LED indicator on the body; vaporhose, watershield, dip tube and the glass water tank below. The leather strap and magnetic mouthpiece finish the object.</p>
+    <p>Thermocap and heating chamber up top; the thermodial and LED indicator on the body; vaporhose, watershield, dip tube and the glass water tank below. The leather strap and magnetic mouthpiece finish the ENSŌ.</p>
   </div>
   <div class="split-figure">
     <img class="themed-dark" src="assets/manual/parts-diagram.png" alt="Labelled diagram of ENSŌ parts">
@@ -102,7 +109,7 @@ try {
 </section>
 
 <!-- Heat & dial -->
-<section class="split">
+<section class="split" id="temperature">
   <div class="split-figure">
     <img class="themed-dark" src="assets/manual/temp-dial.png" alt="ENSŌ temperature dial, 180 to 330 degrees">
     <img class="themed-light" src="assets/manual/temp-dial-ink.png" alt="" aria-hidden="true">
@@ -140,7 +147,7 @@ try {
 </section>
 
 <!-- Troubleshooting -->
-<section class="trouble">
+<section class="trouble" id="troubleshooting">
   <div class="trouble-head">
     <div class="eyebrow trouble-eyebrow">Troubleshooting</div>
     <h2>When something's off.</h2>
