@@ -478,60 +478,214 @@ body {
   box-shadow: inset 0 0 0 var(--hairline-width) rgba(200, 148, 58, 0.55);
 }
 
-.faq-card {
-  padding-top: 6px;
-  padding-bottom: 6px;
+.trouble-intro {
+  margin: 18px auto 0;
+  max-width: 520px;
+  font-weight: var(--fw-light);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--sub);
 }
 
-.faq-item { border-top: var(--hairline-width) solid var(--line); }
-.faq-item:first-child,
-.faq-item[hidden] + .faq-item:not([hidden]) { border-top: none; }
+/* ── Troubleshooter · issue list ──────────────────────────────────────── */
+.ts-issue-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-.faq-q {
+.ts-issue {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: var(--space-4);
   background: none;
   border: none;
+  border-top: var(--hairline-width) solid var(--line);
   cursor: pointer;
-  padding: 18px 0;
+  padding: 16px 0;
   text-align: left;
   color: var(--body);
   font-family: var(--font-sans);
+  transition: color .16s ease;
+}
+
+.ts-issue-list li:first-child .ts-issue { border-top: none; }
+
+.ts-issue-name {
+  flex: 1;
   font-weight: var(--fw-medium);
   font-size: 14px;
   line-height: 1.3;
 }
 
-.faq-marker {
+.ts-issue-cat {
+  font-size: 10px;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.ts-issue-arrow {
   color: var(--enso-amber);
   font-weight: var(--fw-light);
-  font-size: 20px;
-  line-height: 1;
   flex-shrink: 0;
+  transition: transform .16s ease;
 }
 
-.faq-a {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows .22s ease;
+.ts-issue:hover { color: var(--enso-amber); }
+.ts-issue:hover .ts-issue-arrow { transform: translateX(3px); }
+
+/* ── Troubleshooter · guided flow ─────────────────────────────────────── */
+.ts-flow-back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: none;
+  border: none;
+  padding: 0;
+  margin-bottom: 18px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color .16s ease;
 }
 
-.faq-item.open .faq-a { grid-template-rows: 1fr; }
+.ts-flow-back:hover { color: var(--enso-amber); }
 
-.faq-a-inner { overflow: hidden; }
-
-.faq-a-inner p {
-  margin: 0;
-  padding: 0 0 20px;
+.ts-flow-issue {
+  font-style: italic;
   font-weight: var(--fw-light);
-  font-size: 13.5px;
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--head);
+  margin-bottom: 20px;
+}
+
+.ts-question {
+  margin: 0 0 20px;
+  font-weight: var(--fw-medium);
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--body);
+}
+
+.ts-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.ts-option {
+  width: 100%;
+  text-align: left;
+  background: var(--input-bg);
+  box-shadow: inset 0 0 0 var(--hairline-width) var(--line);
+  border: none;
+  border-radius: var(--radius-note);
+  padding: 15px 18px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: var(--fw-light);
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--body);
+  transition: box-shadow .16s ease, background-color .16s ease;
+}
+
+.ts-option:hover {
+  box-shadow: inset 0 0 0 var(--hairline-width) var(--enso-amber);
+}
+
+.ts-advance {
+  margin-top: 18px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: var(--fw-light);
+  color: var(--muted);
+  transition: color .16s ease;
+}
+
+.ts-advance:hover { color: var(--enso-amber); }
+
+/* ── Troubleshooter · result panels ───────────────────────────────────── */
+.ts-result-title {
+  font-style: italic;
+  font-weight: var(--fw-light);
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--head);
+  margin-bottom: 14px;
+}
+
+.ts-result.is-solved .ts-result-title { color: var(--enso-amber); }
+
+.ts-result-text {
+  margin: 0;
+  font-weight: var(--fw-light);
+  font-size: 15px;
   line-height: 1.7;
   color: var(--sub);
-  max-width: 52ch;
 }
+
+.ts-evidence {
+  margin: 20px 0 0;
+  background: rgba(200, 148, 58, 0.10);
+  box-shadow: inset 0 0 0 var(--hairline-width) rgba(200, 148, 58, 0.35);
+  border-radius: var(--radius-note);
+  padding: 14px 18px;
+}
+
+.ts-evidence-label {
+  font-size: 10px;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--enso-amber);
+}
+
+.ts-evidence-text {
+  margin: 7px 0 0;
+  font-weight: var(--fw-light);
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--sub);
+}
+
+.ts-result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: 24px;
+}
+
+.ts-btn-secondary {
+  background: none;
+  box-shadow: inset 0 0 0 var(--hairline-width) var(--line);
+  border: none;
+  border-radius: var(--radius-note);
+  padding: 13px 20px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.04em;
+  color: var(--body);
+  transition: box-shadow .16s ease;
+}
+
+.ts-btn-secondary:hover { box-shadow: inset 0 0 0 var(--hairline-width) var(--enso-amber); }
 
 .no-results {
   margin: 0;

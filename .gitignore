@@ -1,2 +1,13 @@
 # macOS folder metadata
 .DS_Store
+
+# Excel temporary lock files
+~$*
+
+# Python environment for the spreadsheet tooling
+.venv/
+
+# Troubleshooting MASTER spreadsheet — contains internal warranty notes.
+# This repo is public, so the master is kept local only. The website uses the
+# generated, stripped js/troubleshooting-data.js (no internal columns) instead.
+data/troubleshooting-master.xlsx
