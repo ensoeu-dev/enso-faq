@@ -69,6 +69,10 @@ def main():
             errors.append(f"Row {r} ({idv}): invalid 'Then…' value {then_raw!r} "
                           f"(expected: Solved / Next step / Contact support)")
             continue
+        if outcome == "next" and not show:
+            errors.append(f"Row {r} ({idv}): 'Next step' needs a fix in 'Show the customer' "
+                          f"(it becomes a 'try this' step shown to the customer).")
+            continue
 
         if idv not in issues:
             issues[idv] = {"id": idv, "category": category, "issue": issue, "checks": []}

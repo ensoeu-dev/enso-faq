@@ -2,7 +2,7 @@
    Source: data/troubleshooting-master.xlsx
    Rebuild: .venv/bin/python scripts/import_troubleshooting.py */
 window.ENSO_TROUBLESHOOTING = {
-  "generatedAt": "2026-06-19",
+  "generatedAt": "2026-06-25",
   "categories": [
     "Power & startup",
     "Charging",
@@ -10,7 +10,9 @@ window.ENSO_TROUBLESHOOTING = {
     "Sound",
     "LED",
     "Water",
-    "Cosmetic"
+    "Cosmetic",
+    "Air leak",
+    "Parts & packaging"
   ],
   "issues": [
     {
@@ -60,35 +62,18 @@ window.ENSO_TROUBLESHOOTING = {
       ]
     },
     {
-      "id": "POW-02",
+      "id": "POW-04",
       "category": "Power & startup",
-      "issue": "10 flashes on power-on",
+      "issue": "3 (red) flashes on power-on",
       "checks": [
         {
-          "question": "Ten flashes means low battery. Is the battery fully charged?",
+          "question": "Does the LED flash red three times after power-on, or after the pre-heat cycle?",
           "options": [
             {
-              "label": "Not fully charged",
-              "guidance": "Charge the battery fully (about 1h45m over USB-C), then try again. Use a 30W PD charger (minimum) for a steady top-up, and watch the four LEDs climb to full. For a complete charge, leave the battery on for at least 1 hour 45 minutes even once the LEDs read full.",
-              "outcome": "next",
-              "evidence": ""
-            }
-          ]
-        },
-        {
-          "question": "After a full charge, does it turn on normally?",
-          "options": [
-            {
-              "label": "Yes, it turns on",
-              "guidance": "All set — it was just a low battery.",
-              "outcome": "solved",
-              "evidence": ""
-            },
-            {
-              "label": "No, still 10 flashes and won't turn on",
-              "guidance": "Let's get you to support so we can take a closer look.",
+              "label": "Yes, three red flashes",
+              "guidance": "That's a fault our team needs to handle — let's get you to support.",
               "outcome": "support",
-              "evidence": "A short video showing the 10-flash pattern with a fully charged battery."
+              "evidence": "A short video clearly showing the three red flashes (after power-on or after the pre-heat cycle)."
             }
           ]
         }
@@ -97,7 +82,7 @@ window.ENSO_TROUBLESHOOTING = {
     {
       "id": "POW-03",
       "category": "Power & startup",
-      "issue": "7 flashes on power-on",
+      "issue": "7 (red) flashes on power-on",
       "checks": [
         {
           "question": "Seven flashes is overheating protection. If you're using it while charging, is the battery above 50%?",
@@ -117,7 +102,7 @@ window.ENSO_TROUBLESHOOTING = {
               "label": "No, it's gone",
               "guidance": "Sorted — it was the low charge while plugged in.",
               "outcome": "solved",
-              "evidence": ""
+              "evidence": "A short video showing the 10-flash pattern with a fully charged battery."
             },
             {
               "label": "Yes, it still appears",
@@ -147,6 +132,41 @@ window.ENSO_TROUBLESHOOTING = {
       ]
     },
     {
+      "id": "POW-02",
+      "category": "Power & startup",
+      "issue": "10 (red) flashes on power-on",
+      "checks": [
+        {
+          "question": "Ten flashes means low battery. Is the battery fully charged?",
+          "options": [
+            {
+              "label": "Not fully charged",
+              "guidance": "Charge the battery fully (about 1h45m over USB-C), then try again. Use a 30W PD charger (minimum) for a steady top-up, and watch the four LEDs climb to full. For a complete charge, leave the battery on for at least 1 hour 45 minutes even once the LEDs read full.",
+              "outcome": "next",
+              "evidence": ""
+            }
+          ]
+        },
+        {
+          "question": "After a full charge, does it turn on normally?",
+          "options": [
+            {
+              "label": "Yes, it turns on",
+              "guidance": "All set — it was just a low battery.",
+              "outcome": "solved",
+              "evidence": "A short video showing the 7-flash after cooldown with battery above 50%."
+            },
+            {
+              "label": "No, still 10 flashes and won't turn on",
+              "guidance": "Let's get you to support so we can take a closer look.",
+              "outcome": "support",
+              "evidence": "A short video showing the 10-flash pattern with a fully charged battery."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "CHG-01",
       "category": "Charging",
       "issue": "Does not charge over USB",
@@ -169,7 +189,7 @@ window.ENSO_TROUBLESHOOTING = {
               "label": "Yes, another cable works",
               "guidance": "It was a faulty cable — you're all set.",
               "outcome": "solved",
-              "evidence": ""
+              "evidence": "A clear photo of the USB port and a short video of the charging attempt."
             }
           ]
         },
@@ -198,7 +218,7 @@ window.ENSO_TROUBLESHOOTING = {
               "label": "Slight wobble / movement only",
               "guidance": "That slight movement is normal — it's within the design tolerance and isn't a fault.",
               "outcome": "solved",
-              "evidence": ""
+              "evidence": "A short video showing the chamber collapsing or rotating freely."
             }
           ]
         },
@@ -238,7 +258,7 @@ window.ENSO_TROUBLESHOOTING = {
               "label": "Yes, there's a sound",
               "guidance": "The speaker is working normally — you're all set.",
               "outcome": "solved",
-              "evidence": ""
+              "evidence": "A short video showing no sound on power-on with sound enabled."
             }
           ]
         },
@@ -289,7 +309,7 @@ window.ENSO_TROUBLESHOOTING = {
               "label": "Yes, only at power-off and fine after restart",
               "guidance": "That's normal when the battery is low and doesn't affect use — nothing to worry about.",
               "outcome": "solved",
-              "evidence": ""
+              "evidence": "A short video showing the continuous leakage from the body."
             }
           ]
         }
@@ -347,7 +367,7 @@ window.ENSO_TROUBLESHOOTING = {
               "label": "No continuous flow",
               "guidance": "This is normal condensation, not a defect — nothing to worry about.",
               "outcome": "solved",
-              "evidence": ""
+              "evidence": "Clear photos (and a short video if possible) showing the damage, and whether it was before or after first use."
             }
           ]
         }
@@ -366,6 +386,149 @@ window.ENSO_TROUBLESHOOTING = {
               "guidance": "If you notice cosmetic damage after unpacking, please don't use the device — contact support first and we'll look at it with you.",
               "outcome": "support",
               "evidence": "Clear photos (and a short video if possible) showing the damage, and whether it was before or after first use."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CHM-02",
+      "category": "Heating chamber",
+      "issue": "Heating chamber cracked or broken",
+      "checks": [
+        {
+          "question": "Is there a visible crack or break in the heating chamber?",
+          "options": [
+            {
+              "label": "Yes, a visible crack or break",
+              "guidance": "That needs our team to take a look — let's get you to support.",
+              "outcome": "support",
+              "evidence": "A clear photo or short video showing the crack or break in the heating chamber."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CHM-03",
+      "category": "Heating chamber",
+      "issue": "Powers on but no heat",
+      "checks": [
+        {
+          "question": "Does the device power on but produce no heat at all during use?",
+          "options": [
+            {
+              "label": "Yes, it powers on but doesn't heat",
+              "guidance": "Let's get you to support so we can look into the heating.",
+              "outcome": "support",
+              "evidence": "A short video showing the device powered on but producing no heat during use."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CHM-04",
+      "category": "Heating chamber",
+      "issue": "Ceramic cup doesn't fit the chamber",
+      "checks": [
+        {
+          "question": "Does the ceramic cup fail to fit correctly into the heating chamber?",
+          "options": [
+            {
+              "label": "Yes, the cup doesn't fit properly",
+              "guidance": "Let's get you to support — this usually starts with a set of replacement cups.",
+              "outcome": "support",
+              "evidence": "A short video showing the cup not fitting correctly into the heating chamber."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "AIR-01",
+      "category": "Air leak",
+      "issue": "Air escapes from the device body",
+      "checks": [
+        {
+          "question": "Is there a visible gap between the glass water tank and the device connection?",
+          "options": [
+            {
+              "label": "Yes, there's a visible gap",
+              "guidance": "Reseat the glass water tank firmly so it sits flush against the device, then retest.",
+              "outcome": "next",
+              "evidence": ""
+            }
+          ]
+        },
+        {
+          "question": "After reseating the tank, does smoke still escape from the body instead of the valves?",
+          "options": [
+            {
+              "label": "No, reseating fixed it",
+              "guidance": "Great — it just needed a firm reseat.",
+              "outcome": "solved",
+              "evidence": ""
+            },
+            {
+              "label": "Yes, it still escapes",
+              "guidance": "Let's get you to support.",
+              "outcome": "support",
+              "evidence": "A short video showing smoke escaping from the body, with the correct water level and no bubbling when you inhale."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PKG-01",
+      "category": "Parts & packaging",
+      "issue": "Damaged gift box",
+      "checks": [
+        {
+          "question": "Is there visible damage to the ENSŌ gift box, noticed after unboxing?",
+          "options": [
+            {
+              "label": "Yes, the gift box is damaged",
+              "guidance": "Let's get you to support to sort a replacement.",
+              "outcome": "support",
+              "evidence": "A clear photo or short video showing the damage to the gift box."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PKG-02",
+      "category": "Parts & packaging",
+      "issue": "Cracked or broken water tank",
+      "checks": [
+        {
+          "question": "Is there a crack or visible damage on the glass water tank, noticed after unboxing?",
+          "options": [
+            {
+              "label": "Yes, the water tank is cracked or damaged",
+              "guidance": "Let's get you to support to arrange a replacement tank.",
+              "outcome": "support",
+              "evidence": "A clear photo or short video showing the crack or damage on the glass water tank."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PKG-03",
+      "category": "Parts & packaging",
+      "issue": "Rusty or broken mouthpiece",
+      "checks": [
+        {
+          "question": "Is there rust or visible damage on the mouthpiece?",
+          "options": [
+            {
+              "label": "Yes, the mouthpiece is rusty or damaged",
+              "guidance": "Let's get you to support to arrange a replacement mouthpiece.",
+              "outcome": "support",
+              "evidence": "A clear photo or short video showing the rust or damage on the mouthpiece."
             }
           ]
         }
