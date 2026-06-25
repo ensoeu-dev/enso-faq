@@ -448,6 +448,12 @@ body {
 
 .search-input::placeholder { color: var(--muted); }
 
+/* iOS/iPadOS Safari zooms in when focusing an input under 16px and doesn't
+   zoom back out. Bump to 16px on touch devices to stop the auto-zoom. */
+@media (pointer: coarse) {
+  .search-input { font-size: 16px; }
+}
+
 .chips {
   display: flex;
   gap: var(--space-3);
