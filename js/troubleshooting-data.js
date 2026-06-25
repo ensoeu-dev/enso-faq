@@ -27,7 +27,19 @@ window.ENSO_TROUBLESHOOTING = {
               "label": "It is still inside",
               "guidance": "Remove the protection sheet from the battery compartment, then try turning the device on again.",
               "outcome": "next",
-              "evidence": ""
+              "evidence": "",
+              "images": [
+                {
+                  "dark": "assets/manual/battery-remove.png",
+                  "light": "assets/manual/battery-remove-ink.png"
+                }
+              ]
+            }
+          ],
+          "images": [
+            {
+              "dark": "assets/manual/battery-remove.png",
+              "light": "assets/manual/battery-remove-ink.png"
             }
           ]
         },
@@ -38,7 +50,19 @@ window.ENSO_TROUBLESHOOTING = {
               "label": "Not fully charged",
               "guidance": "Charge the battery fully (about 1h45m over USB-C), then try again. Use a 30W PD charger (minimum) for a steady top-up, and watch the four LEDs climb to full. For a complete charge, leave the battery on for at least 1 hour 45 minutes even once the LEDs read full.",
               "outcome": "next",
-              "evidence": ""
+              "evidence": "",
+              "images": [
+                {
+                  "dark": "assets/manual/step-charge.png",
+                  "light": "assets/manual/step-charge-ink.png"
+                }
+              ]
+            }
+          ],
+          "images": [
+            {
+              "dark": "assets/manual/step-charge.png",
+              "light": "assets/manual/step-charge-ink.png"
             }
           ]
         },
@@ -91,7 +115,19 @@ window.ENSO_TROUBLESHOOTING = {
               "label": "Below 50% while used on USB",
               "guidance": "Charge above 50% before using it on the cable, then try again.",
               "outcome": "next",
-              "evidence": ""
+              "evidence": "",
+              "images": [
+                {
+                  "dark": "assets/manual/step-charge.png",
+                  "light": "assets/manual/step-charge-ink.png"
+                }
+              ]
+            }
+          ],
+          "images": [
+            {
+              "dark": "assets/manual/step-charge.png",
+              "light": "assets/manual/step-charge-ink.png"
             }
           ]
         },
@@ -108,7 +144,13 @@ window.ENSO_TROUBLESHOOTING = {
               "label": "Yes, it still appears",
               "guidance": "Remove the battery and let the device rest for about 30 minutes, then try again.",
               "outcome": "next",
-              "evidence": ""
+              "evidence": "",
+              "images": [
+                {
+                  "dark": "assets/manual/battery-remove.png",
+                  "light": "assets/manual/battery-remove-ink.png"
+                }
+              ]
             }
           ]
         },
@@ -143,7 +185,19 @@ window.ENSO_TROUBLESHOOTING = {
               "label": "Not fully charged",
               "guidance": "Charge the battery fully (about 1h45m over USB-C), then try again. Use a 30W PD charger (minimum) for a steady top-up, and watch the four LEDs climb to full. For a complete charge, leave the battery on for at least 1 hour 45 minutes even once the LEDs read full.",
               "outcome": "next",
-              "evidence": ""
+              "evidence": "",
+              "images": [
+                {
+                  "dark": "assets/manual/step-charge.png",
+                  "light": "assets/manual/step-charge-ink.png"
+                }
+              ]
+            }
+          ],
+          "images": [
+            {
+              "dark": "assets/manual/step-charge.png",
+              "light": "assets/manual/step-charge-ink.png"
             }
           ]
         },
@@ -178,7 +232,19 @@ window.ENSO_TROUBLESHOOTING = {
               "label": "It is still inside",
               "guidance": "Remove the protection sheet, then try charging again.",
               "outcome": "next",
-              "evidence": ""
+              "evidence": "",
+              "images": [
+                {
+                  "dark": "assets/manual/battery-remove.png",
+                  "light": "assets/manual/battery-remove-ink.png"
+                }
+              ]
+            }
+          ],
+          "images": [
+            {
+              "dark": "assets/manual/battery-remove.png",
+              "light": "assets/manual/battery-remove-ink.png"
             }
           ]
         },
@@ -468,7 +534,19 @@ window.ENSO_TROUBLESHOOTING = {
               "label": "Yes, there's a visible gap",
               "guidance": "Reseat the glass water tank firmly so it sits flush against the device, then retest.",
               "outcome": "next",
-              "evidence": ""
+              "evidence": "",
+              "images": [
+                {
+                  "dark": "assets/manual/tank-seat.png",
+                  "light": "assets/manual/tank-seat-ink.png"
+                }
+              ]
+            }
+          ],
+          "images": [
+            {
+              "dark": "assets/manual/tank-seat.png",
+              "light": "assets/manual/tank-seat-ink.png"
             }
           ]
         },

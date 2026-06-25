@@ -103,12 +103,17 @@ def main():
             "evidence": evidence,
         }
         if image:
-            # Comma-separated asset base names; optional "@NN" sets a size scale (percent)
-            imgs = []
+            # Comma-separated asset base names. Suffixes: "@NN" scales size (percent);
+            # trailing "!" means show on the fix/"try this" step only, not the question.
+            imgs = []        # all figures (for the "try this" panel)
+            q_imgs = []      # figures also shown on the question step
             for raw in image.split(","):
                 nm = raw.strip()
                 if not nm:
                     continue
+                fix_only = nm.endswith("!")
+                if fix_only:
+                    nm = nm[:-1].strip()
                 scale = 1.0
                 if "@" in nm:
                     nm, pct = nm.split("@", 1)
@@ -121,12 +126,14 @@ def main():
                 if scale != 1.0:
                     fig["scale"] = round(scale, 3)
                 imgs.append(fig)
+                if not fix_only:
+                    q_imgs.append(fig)
+            # Show on the question step (the first thing the customer sees)...
+            if q_imgs and "images" not in check_obj:
+                check_obj["images"] = q_imgs
+            # ...and, for a fix, also inside the "try this" panel
             if outcome == "next":
-                # Picture(s) belong to the "try this" fix shown after this option
                 option["images"] = imgs
-            else:
-                # Picture(s) belong to the question itself (helps the customer answer)
-                check_obj["images"] = imgs
         check_obj["options"].append(option)
 
     if errors:
