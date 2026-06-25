@@ -29,7 +29,12 @@ OUTCOMES = {
 }
 
 # Column positions in the master sheet (1-based)
-C_ID, C_CAT, C_ISSUE, C_STEP, C_CHECK, C_RESULT, C_SHOW, C_THEN, C_EVIDENCE, C_INTERNAL = range(1, 11)
+(C_ID, C_CAT, C_ISSUE, C_STEP, C_CHECK, C_RESULT, C_SHOW,
+ C_IMAGE, C_THEN, C_EVIDENCE, C_INTERNAL) = range(1, 12)
+NCOLS = 11
+
+# Manual illustration: base asset name -> {dark, light} sources + alt text source.
+IMAGE_DIR = "assets/manual"
 
 
 def clean(v):
@@ -48,7 +53,7 @@ def main():
     errors = []
 
     for r in range(2, ws.max_row + 1):
-        row = [ws.cell(r, c).value for c in range(1, 11)]
+        row = [ws.cell(r, c).value for c in range(1, NCOLS + 1)]
         if all(v in (None, "") for v in row):
             continue
 
@@ -58,6 +63,7 @@ def main():
         check = clean(row[C_CHECK - 1])
         result = clean(row[C_RESULT - 1])
         show = clean(row[C_SHOW - 1])
+        image = clean(row[C_IMAGE - 1])
         then_raw = clean(row[C_THEN - 1])
         evidence = clean(row[C_EVIDENCE - 1])
 
@@ -90,12 +96,38 @@ def main():
             check_obj = {"question": check, "options": []}
             issue_obj["checks"].append(check_obj)
 
-        check_obj["options"].append({
+        option = {
             "label": result,
             "guidance": show,
             "outcome": outcome,
             "evidence": evidence,
-        })
+        }
+        if image:
+            # Comma-separated asset base names; optional "@NN" sets a size scale (percent)
+            imgs = []
+            for raw in image.split(","):
+                nm = raw.strip()
+                if not nm:
+                    continue
+                scale = 1.0
+                if "@" in nm:
+                    nm, pct = nm.split("@", 1)
+                    nm = nm.strip()
+                    try:
+                        scale = float(pct) / 100.0
+                    except ValueError:
+                        scale = 1.0
+                fig = {"dark": f"{IMAGE_DIR}/{nm}.png", "light": f"{IMAGE_DIR}/{nm}-ink.png"}
+                if scale != 1.0:
+                    fig["scale"] = round(scale, 3)
+                imgs.append(fig)
+            if outcome == "next":
+                # Picture(s) belong to the "try this" fix shown after this option
+                option["images"] = imgs
+            else:
+                # Picture(s) belong to the question itself (helps the customer answer)
+                check_obj["images"] = imgs
+        check_obj["options"].append(option)
 
     if errors:
         sys.exit("Import aborted — fix these and re-run:\n  " + "\n  ".join(errors))

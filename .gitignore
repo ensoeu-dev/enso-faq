@@ -11,3 +11,7 @@
 # This repo is public, so the master is kept local only. The website uses the
 # generated, stripped js/troubleshooting-data.js (no internal columns) instead.
 data/troubleshooting-master.xlsx
+
+# Source manual (reference for authoring troubleshooting content). Local only —
+# the large PDF is not part of the published site.
+data/*.pdf

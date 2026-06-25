@@ -30,6 +30,19 @@
       .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
   }
 
+  // Themed manual illustration(s) (white on dark theme, ink on light) — uses the
+  // same .themed-dark / .themed-light swap as the rest of the page. Accepts a
+  // list so a step can show several figures side by side.
+  function figureHtml(images, alt) {
+    if (!images || !images.length) return '';
+    var inner = images.map(function (img, i) {
+      var st = img.scale ? ' style="--fig-scale:' + img.scale + '"' : '';
+      return '<img class="themed-dark"' + st + ' src="' + esc(img.dark) + '" alt="' + (i === 0 ? esc(alt || '') : '') + '">' +
+        '<img class="themed-light"' + st + ' src="' + esc(img.light) + '" alt="" aria-hidden="true">';
+    }).join('');
+    return '<div class="ts-figure">' + inner + '</div>';
+  }
+
   // ── Browse view ───────────────────────────────────────────────────────
   function renderCategories() {
     var html = '<button type="button" class="chip" data-cat="" aria-pressed="' +
@@ -115,6 +128,7 @@
     currentCheck = currentIssue.checks[currentCheckIndex];
     var html = flowHeader();
     html += '<p class="ts-question">' + esc(currentCheck.question) + '</p>';
+    html += figureHtml(currentCheck.images, currentCheck.question);
     html += '<div class="ts-options">';
     currentCheck.options.forEach(function (o, i) {
       html += '<button type="button" class="ts-option" data-action="option" data-opt="' + i + '">' +
@@ -141,11 +155,12 @@
     flowEl.innerHTML = html;
   }
 
-  function renderTryThis(text) {
+  function renderTryThis(text, images) {
     var html = flowHeader();
     html += '<div class="ts-result">' +
       '<div class="ts-result-title">Try this</div>' +
       '<p class="ts-result-text">' + esc(text) + '</p>' +
+      figureHtml(images, text) +
       '<div class="ts-result-actions">' +
       '<button type="button" class="ts-option" data-action="fixed">That fixed it</button>' +
       '<button type="button" class="ts-btn-secondary" data-action="advance">Didn’t help</button>' +
@@ -188,7 +203,7 @@
     if (!o) return;
     if (o.outcome === 'solved') return renderSolved(o.guidance);
     if (o.outcome === 'support') return renderSupport(o.guidance, o.evidence);
-    if (o.outcome === 'next') return renderTryThis(o.guidance);
+    if (o.outcome === 'next') return renderTryThis(o.guidance, o.images);
   }
 
   function advance() {

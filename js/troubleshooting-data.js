@@ -289,6 +289,17 @@ window.ENSO_TROUBLESHOOTING = {
               "outcome": "support",
               "evidence": "A short video showing the LED not changing as you adjust temperature."
             }
+          ],
+          "images": [
+            {
+              "dark": "assets/manual/dial-turn.png",
+              "light": "assets/manual/dial-turn-ink.png",
+              "scale": 0.6
+            },
+            {
+              "dark": "assets/manual/led-temp.png",
+              "light": "assets/manual/led-temp-ink.png"
+            }
           ]
         },
         {

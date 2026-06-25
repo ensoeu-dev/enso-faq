@@ -582,6 +582,34 @@ body {
   color: var(--body);
 }
 
+/* Manual illustration(s) inside a step (question or "try this").
+   Flex row so multiple figures sit side by side, aligned by height. */
+.ts-figure {
+  --fig-max: 250px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin: 0 0 22px;
+}
+
+/* Per-image size = the responsive base (--fig-max) times an optional --fig-scale */
+.ts-figure img {
+  max-height: calc(var(--fig-max) * var(--fig-scale, 1));
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+@media (max-width: 760px) {
+  .ts-figure { --fig-max: 190px; }
+}
+
+@media (max-width: 480px) {
+  .ts-figure { --fig-max: 132px; gap: 14px; }
+}
+
 .ts-options {
   display: flex;
   flex-direction: column;
@@ -616,7 +644,7 @@ body {
   padding: 0;
   cursor: pointer;
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: var(--fw-light);
   color: var(--muted);
   transition: color .16s ease;
